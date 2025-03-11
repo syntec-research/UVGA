@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>High-Resolution Dynamic Head Modeling with 3D Gaussian Splatting</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="./static/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src=".static/js/jquery.min.js"></script> <!--https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js-->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<style>
+  .rotate_image {
+      -webkit-transform: rotate(270deg);
+      -moz-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      -o-transform: rotate(270deg);
+      transform: rotate(270deg);
+      margin: 100px 0 50px 0;
+  }
+</style>
+
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">High-Resolution Dynamic Head Modeling with 3D Gaussian Splatting Results</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Siggraph 2025 submission papers_858
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+TBR August 2025
+	</div>
+      <div class="content has-text-justified">
+        <!--<p>
+          *Please note that due to the file size limit (500MB), we can only show limited high-resolution video results.*
+        </p>-->
+          <p>
+              * We recommend using the Chrome or Safari browser to correctly dispay all visuals.
+          </p>
+    </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<hr style="width:30%; margin: auto;" />
+
+<!-- Novel View -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Novel View Synthesis</h2>
+        <div class="content has-text-justified">
+          <p>
+              We can render the same (training) expression from continuous camera views. As can be seen below, when training on a static lighting setting, RGCA does not maintain multiview consistency across motion which manifests itself through semitransparent surfaces especially visible in the last example. While Gaussian Avatars does not suffer from the same issue, the overall quality is worse.
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/ours_52_cam_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/RGCA_52_cam_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GA_52_cam_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+    </div> 
+    <div class="columns">
+       <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="60%">
+            <source src="./static/videos/ours_46_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/RGCA_46_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GA_46_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>     
+    </div>
+    <div class="columns">
+       <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="60%">
+            <source src="./static/videos/ours_45_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/RGCA_45_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GA_45_cam_orbit_downscaled.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>     
+    </div>
+    <div class="columns">
+       <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="60%">
+            <source src="./static/videos/ours_6795937_cam_orbit.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/RGCA_6795937_cam_orbit.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GA_6795937_cam_orbit.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>     
+    </div>    
+  </div>
+</div>
+
+<!-- Reenactment -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Reenactment</h2>
+        <div class="content has-text-justified">
+          <p>
+              We show results on expressions unseen during training. In these examples, we extract 3DMM coefficients from the Expression Target (left) and apply them to our target subject on the right. Note how RGCA often fails to properly reconstruct the expressions. Furthermore, although quality is overall fairly comparable, we are able to reconstruct certain finer details better than RGCA. Both methods significantly outperform GaussianAvatars in terms of quality. Note that since the multiface dataset does not contain eyeball meshes, no method is able to reconstruct gaze correctly.
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_43_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_43_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>    
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_57_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_57_eye.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_002643814_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_002643814_eye.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reenactment -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Warp Ablation</h2>
+        <div class="content has-text-justified">
+          <p>
+              We show results on test expression reenactments. Note how the warp field is necessary in order to reconstruct all the fine details.
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_58_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp (With Shading)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_58_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_52_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp (With Shading)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_52_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_8870559_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp (With Shading)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MLP Warp</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/warp_ablation_8870559_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Shading -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Shading Ablation</h2>
+        <div class="content has-text-justified">
+          <p>
+              We show results on expressions unseen during training and interpolated expressions with camera orbits for all our ablation settings.
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Shading (With Warp)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_47_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Shading (With Warp)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_47_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Shading (With Warp)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_57_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Shading (With Warp)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_57_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Shading (With Warp)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_002643814_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp (With Shading)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Warp or Shading</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shading_ablation_002643814_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Shading -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Other Ablations</h2>
+        <div class="content has-text-justified">
+          <p>
+              Here, we show how our method performs without adaptive densification, with binding inheritance, and without using an LPIPS loss. Here, we show that densification is critical to general quality. The UV based triangle method is critical to avoid artifacts where gaussians are bound to the "wrong" triangle, and LPIPs significantly reduces blurriness.
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_54_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_54_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_43_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_43_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_5372021_full.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Densification</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No Triangle Updates</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">No VGG loss</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/misc_ablation_5372021_crop.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Add custom js here.
+</script>
+
+
+</body>
+</html>
