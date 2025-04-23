@@ -136,7 +136,7 @@
           *Please note that due to the file size limit (500MB), we can only show limited high-resolution video results.*
         </p>-->
           <p>
-              * We recommend using the Chrome or Safari browser to correctly dispay all visuals.
+              * We recommend using the Chrome or Safari browser to correctly display all visuals.
           </p>
     </div>
       </div>
@@ -155,7 +155,7 @@
         <h2 class="title is-3">Novel View Synthesis</h2>
         <div class="content has-text-justified">
           <p>
-              We can render the same (training) expression from continuous camera views. As can be seen below, when training on a static lighting setting, RGCA does not maintain multiview consistency across motion which manifests itself through semitransparent surfaces especially visible in the last example. While Gaussian Avatars does not suffer from the same issue, the overall quality is worse.
+              We can render the same (training) expression from continuous camera views. As can be seen below, when training on a static lighting setting, RGCA does not maintain multiview consistency across motion which manifests itself through semitransparent surfaces especially visible in the last example. GHA, using CNN-based upscaling, suffers from noticeable aliasing effects. While Gaussian Avatars and MVP do not suffer from these issues, the overall quality is worse.
           </p>
       </div>
     </div>
@@ -199,6 +199,28 @@
           </video>
         </div>
       </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MVP_52_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GHA_52_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>   
     </div> 
     <div class="columns">
        <div class="column">
@@ -233,7 +255,29 @@
                     type="video/mp4">
           </video>
         </div>
-      </div>     
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MVP_46_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GHA_46_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>      
     </div>
     <div class="columns">
        <div class="column">
@@ -268,7 +312,29 @@
                     type="video/mp4">
           </video>
         </div>
-      </div>     
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MVP_45_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GHA_45_orbit_downscaled.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>      
     </div>
     <div class="columns">
        <div class="column">
@@ -303,7 +369,29 @@
                     type="video/mp4">
           </video>
         </div>
-      </div>     
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/MVP_6795937_cam_orbit.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+        <div class="item">
+          <video poster="" id="0rV_rgb" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/GHA_6795937_cam_orbit.webm"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>            
     </div>    
   </div>
 </div>
@@ -316,7 +404,13 @@
         <h2 class="title is-3">Reenactment</h2>
         <div class="content has-text-justified">
           <p>
-              We show results on expressions unseen during training. In these examples, we extract 3DMM coefficients from the Expression Target (left) and apply them to our target subject on the right. Note how RGCA often fails to properly reconstruct the expressions. Furthermore, although quality is overall fairly comparable, we are able to reconstruct certain finer details better than RGCA. Both methods significantly outperform GaussianAvatars in terms of quality. Note that since the multiface dataset does not contain eyeball meshes, no method is able to reconstruct gaze correctly.
+              We show results on expressions unseen during training. In these examples, we extract 3DMM coefficients from the Expression Target (left) and apply them to our target subject on the right. Note how both MVP and RGCA often fails to properly reconstruct the expressions.
+              
+              Furthermore, although quality is overall fairly comparable, we are able to reconstruct certain finer details better than RGCA. Both our method and RGCA significantly outperform GaussianAvatars, MVP and Gaussian Head Avatars in terms of quality.
+              
+              Note that since the multiface dataset does not contain eyeball meshes, no method is able to reconstruct gaze correctly.
+              
+              In order to show that our method does not improve purely through the use of additional gaussians, we additionally provide comparisons with our method using a roughly equal number of gaussians. Specifically, RGCA was trained using 1M gaussians, and Gaussian Avatars typically densifies up to ~200K gaussians. Note how despite some additional artifacts and blurrier hair, our method is able to retain quality even with only 200K gaussians.
           </p>
       </div>
     </div>
@@ -339,12 +433,12 @@
       </div>      
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
         </div>
       </div>   
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
+          <h3 class="has-text-centered">RGCA</h4>
         </div>
       </div>   
     </div>
@@ -352,12 +446,344 @@
       <div class="column">
         <div class="item">
           <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_43_full.webm"
+            <source src="./static/videos/sota_43_high.webm"
                     type="video/mp4">
           </video>
         </div>
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_43_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_43_crop_high.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_43_crop_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_high.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_crop_high.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_54_crop_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>    
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_57_high.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_57_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GT</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">RGCA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_57_crop_high.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
     <div class="columns">
       <div class="column">
         <div class="content">
@@ -384,12 +810,14 @@
       <div class="column">
         <div class="item">
           <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_43_crop.webm"
+            <source src="./static/videos/sota_57_crop_low.webm"
                     type="video/mp4">
           </video>
         </div>
       </div>
     </div>
+    <br>
+    <br>
     <div class="columns">
       <div class="column">
         <div class="content">
@@ -403,12 +831,12 @@
       </div>      
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
         </div>
       </div>   
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
+          <h3 class="has-text-centered">RGCA</h4>
         </div>
       </div>   
     </div>
@@ -416,12 +844,46 @@
       <div class="column">
         <div class="item">
           <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_54_full.webm"
+            <source src="./static/videos/sota_002643814_high.webm"
                     type="video/mp4">
           </video>
         </div>
       </div>
     </div>
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GaussianAvatars</h4>
+        </div>
+      </div>      
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">MVP</h4>
+        </div>
+      </div>   
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">GHA</h4>
+        </div>
+      </div>   
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sota_002643814_low.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
     <div class="columns">
       <div class="column">
         <div class="content">
@@ -435,12 +897,12 @@
       </div>      
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
+          <h3 class="has-text-centered">Ours(1M Gaussians)</h4>
         </div>
       </div>   
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
+          <h3 class="has-text-centered">RGCA</h4>
         </div>
       </div>   
     </div>
@@ -448,63 +910,33 @@
       <div class="column">
         <div class="item">
           <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_54_crop.webm"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>    
-    <div class="columns">
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GT</h4>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">Ours</h4>
-        </div>
-      </div>      
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
-        </div>
-      </div>   
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
-        </div>
-      </div>   
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="item">
-          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_57_full.webm"
+            <source src="./static/videos/sota_002643814_crop_high.webm"
                     type="video/mp4">
           </video>
         </div>
       </div>
     </div>
+    <br>
+    <br>
     <div class="columns">
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">GT</h4>
+          <h3 class="has-text-centered">Ours(200K Gaussians)</h4>
         </div>
       </div>
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">Ours</h4>
+          <h3 class="has-text-centered">GaussianAvatars</h4>
         </div>
       </div>      
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
+          <h3 class="has-text-centered">MVP</h4>
         </div>
       </div>   
       <div class="column">
         <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
+          <h3 class="has-text-centered">GHA</h4>
         </div>
       </div>   
     </div>
@@ -512,71 +944,7 @@
       <div class="column">
         <div class="item">
           <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_57_eye.webm"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GT</h4>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">Ours</h4>
-        </div>
-      </div>      
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
-        </div>
-      </div>   
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
-        </div>
-      </div>   
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="item">
-          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_002643814_full.webm"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GT</h4>
-        </div>
-      </div>
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">Ours</h4>
-        </div>
-      </div>      
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">RGCA</h4>
-        </div>
-      </div>   
-      <div class="column">
-        <div class="content">
-          <h3 class="has-text-centered">GaussianAvatars</h4>
-        </div>
-      </div>   
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="item">
-          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/sota_002643814_eye.webm"
+            <source src="./static/videos/sota_002643814_crop_low.webm"
                     type="video/mp4">
           </video>
         </div>
@@ -593,7 +961,7 @@
         <h2 class="title is-3">Warp Ablation</h2>
         <div class="content has-text-justified">
           <p>
-              We show results on test expression reenactments. Note how the warp field is necessary in order to reconstruct all the fine details.
+              We show results on test expression reenactments. Note how the CNN warp field is necessary in order to reconstruct all the fine details.
           </p>
       </div>
     </div>
@@ -1256,6 +1624,79 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Shading -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="column is-centered has-text-centered">
+      <div class="content">
+        <h2 class="title is-3">Temporal Instability</h2>
+        <div class="content has-text-justified">
+          <p>
+          Some of our results shown temporal instability in the form of flickering. This is not an inherent part of our method, but rather as a result of imperfect 3DMM registration. Below, we show comparisons of our results with the underlying 3DMM mesh. As can be seen here, the flickering mostly caused by instability of the underlying mesh,
+          </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Render</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Mesh</h4>
+        </div>
+      </div>
+    </div>      
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mesh_stability_58.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column is-centered has-text-centered">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Render</h4>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="has-text-centered">Mesh</h4>
+        </div>
+      </div>
+    </div>      
+    <div class="columns">
+      <div class="column">
+        <div class="item">
+          <video poster="" id="" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mesh_stability_52.webm"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
     // Add custom js here.
